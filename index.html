@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="register">
+        <label for="">email</label>
+        <input type="text" name="" id="email"><br>
+
+        <label for="">username</label>
+        <input type="text" name="" id="username"><br>
+
+        <label for="">password</label>
+        <style>
+            span{ cursor: pointer; }
+        </style>
+        <input type="password" name="" id="password"><span id="show">show</span><br>
+
+        <p id="msg"></p>
+        <button id="btn">submit</button>
+    </form>
+</body>
+<script>
+    let register = document.getElementById('register')
+    register.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        let username = document.getElementById('username').value
+        let email = document.getElementById('email').value
+        let password = document.getElementById('password').value
+        let msg = document.getElementById('msg')
+        let btn = document.getElementById('btn')
+        
+        btn.innerHTML = 'processing'
+        btn.disabled = true
+        
+    })
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #toggle{
+            background-color: black;
+            height: 20px;
+            width: 50px;
+            border-radius: 100px;
+            position: relative;
+        }
+        .ball{
+            background-color: white;
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            left: 0;
+            border-radius: 100px;
+            transform: scale(0.75);
+            transition: 1s;
+        }
+        #toggle.active .ball{
+            left: 25px;
+        }
+        body.active{
+            background-color: black;
+        }
+        #toggle.active{
+            background-color: lightblue;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="toggle">
+        <span class="ball"></span>
+    </div>
+
+
+
+
+    <script>
+        let toggle = document.getElementById('toggle');
+        let body =  document.querySelector('body');
+
+        toggle.addEventListener('click', function(){
+            toggle.classList.toggle('active');
+            body.classList.toggle('active');
+            if(!body.classList.contains('active')){
+                return localStorage.setItem('mode', 'white');
+            }else{
+                return localStorage.setItem('mode', 'active');
+            }
+        })
+
+
+        // get the mode
+        let getmode = localStorage.getItem('mode');
+        if(getmode === 'active'){
+            body.classList.add('active');
+            toggle.classlist.add('active')
+        }
+    </script>
+
+</body>
+</html>
